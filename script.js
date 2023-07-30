@@ -3,10 +3,11 @@
 // in the html.
 $(document).ready(function () {
 
+  const currentDate = dayjs().format('dddd, MMMM D, YYYY');
+  const currentTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
+
   function updateTimeAndDate() {
     // Get the current time using Day.js
-    const currentDate = dayjs().format('dddd, MMMM D, YYYY');
-    const currentTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
     $("#date").text(currentDate);
       }
 
@@ -16,7 +17,10 @@ $(document).ready(function () {
   // Update the time and date every second (1000 milliseconds)
   setInterval(updateTimeAndDate, 1000);
 
-  console.log(currentTime)
+ $("#hour9").dayjs().set("hour", 9);
+      
+  
+  
 	
 });
 // TODO: Add a listener for click events on the save button. This code should
