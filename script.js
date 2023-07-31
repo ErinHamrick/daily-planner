@@ -10,9 +10,10 @@ $(document).ready(function () {
 		$("#date").text(currentDate);
 	}
   
-  function (getLocalStorage) {}
+  function getLocalStorage () {$(localStorage).getItem(key, value)};
 	// Call the function initially to display the time and date
 	updateTimeAndDate();
+  
 
 	// Update the time and date every second (1000 milliseconds)
 	setInterval(updateTimeAndDate, 1000);
@@ -25,7 +26,7 @@ $(document).ready(function () {
 
 	let currentHour = dayjs().hour();
 	$(".time-block").each(function () {
-		var timeBlockHour = $(this).attr("id").split("hour")[1];
+		let timeBlockHour = $(this).attr("id").split("hour")[1];
 		console.log(timeBlockHour);
 		if (timeBlockHour > currentHour) {
 			$(this).addClass("future");
