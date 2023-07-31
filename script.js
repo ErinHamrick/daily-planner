@@ -9,11 +9,13 @@ $(document).ready(function () {
 		// Get the current time using Day.js
 		$("#date").text(currentDate);
 	}
-  
-  function getLocalStorage () {$(localStorage).getItem(key, value)};
+
+	function getLocalStorage() {
+		localStorage.getItem();
+	}
+
 	// Call the function initially to display the time and date
 	updateTimeAndDate();
-  
 
 	// Update the time and date every second (1000 milliseconds)
 	setInterval(updateTimeAndDate, 1000);
@@ -36,6 +38,12 @@ $(document).ready(function () {
 			$(this).addClass("past");
 		}
 	});
+
+  $("#clearBtn").click(function (){
+    localStorage.clear();
+    window.location.reload();
+  })
+	
 });
 
 // TODO: Add a listener for click events on the save button. This code should
