@@ -34,7 +34,7 @@ textarea {
 	background-color: #737070;
 	color: white;
 	font-weight: bold;
-	}
+}
 
 .present {
 	background-color: #b5a6a6;
@@ -65,7 +65,7 @@ textarea {
 	margin-top: 25px;
 	margin-bottom: 100px;
 	display: flex;
-	justify-content: center;	
+	justify-content: center;
 }
 
 #clearBtn {

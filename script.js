@@ -11,8 +11,16 @@ $(document).ready(function () {
 	}
 
 	function getLocalStorage() {
-		localStorage.getItem();
+		for (let i = 0; i < 18; i++) {
+			var id = "hour" + i;
+			var value = localStorage.getItem(id);
+			$("#" + id)
+				.children("textarea")
+				.val(value);
+		}
 	}
+
+  getLocalStorage();
 
 	// Call the function initially to display the time and date
 	updateTimeAndDate();
@@ -32,6 +40,7 @@ $(document).ready(function () {
 		console.log(timeBlockHour);
 		if (timeBlockHour > currentHour) {
 			$(this).addClass("future");
+      getLocalStorage(key, value);
 		} else if (timeBlockHour == currentHour) {
 			$(this).addClass("present");
 		} else {
@@ -39,11 +48,10 @@ $(document).ready(function () {
 		}
 	});
 
-  $("#clearBtn").click(function (){
-    localStorage.clear();
-    window.location.reload();
-  })
-	
+	$("#clearBtn").click(function () {
+		localStorage.clear();
+		window.location.reload();
+	});
 });
 
 // TODO: Add a listener for click events on the save button. This code should
