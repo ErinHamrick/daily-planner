@@ -2,27 +2,41 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(document).ready(function () {
+	const currentDate = dayjs().format("dddd, MMMM D, YYYY");
+	const currentTime = dayjs().format("YYYY-MM-DD HH:mm:ss");
 
-  const currentDate = dayjs().format('dddd, MMMM D, YYYY');
-  const currentTime = dayjs().format('YYYY-MM-DD HH:mm:ss');
-
-  function updateTimeAndDate() {
-    // Get the current time using Day.js
-    $("#date").text(currentDate);
-      }
-
-  // Call the function initially to display the time and date
-  updateTimeAndDate();
-
-  // Update the time and date every second (1000 milliseconds)
-  setInterval(updateTimeAndDate, 1000);
-
- $("#hour9").dayjs().set("hour", 9);
-      
+	function updateTimeAndDate() {
+		// Get the current time using Day.js
+		$("#date").text(currentDate);
+	}
   
-  
-	
+  function (getLocalStorage) {}
+	// Call the function initially to display the time and date
+	updateTimeAndDate();
+
+	// Update the time and date every second (1000 milliseconds)
+	setInterval(updateTimeAndDate, 1000);
+
+	$(".saveBtn").click(function () {
+		const value = $(this).siblings(".description").val();
+		const key = $(this).parent().attr("id");
+		localStorage.setItem(key, value);
+	});
+
+	let currentHour = dayjs().hour();
+	$(".time-block").each(function () {
+		var timeBlockHour = $(this).attr("id").split("hour")[1];
+		console.log(timeBlockHour);
+		if (timeBlockHour > currentHour) {
+			$(this).addClass("future");
+		} else if (timeBlockHour == currentHour) {
+			$(this).addClass("present");
+		} else {
+			$(this).addClass("past");
+		}
+	});
 });
+
 // TODO: Add a listener for click events on the save button. This code should
 // use the id in the containing time-block as a key to save the user input in
 // local storage. HINT: What does `this` reference in the click listener
