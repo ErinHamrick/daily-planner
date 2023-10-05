@@ -37,8 +37,7 @@ $(document).ready(function () {
 	let currentHour = dayjs().hour();
 	$(".time-block").each(function () {
 		let timeBlockHour = $(this).attr("id").split("hour")[1];
-		console.log(timeBlockHour);
-		if (timeBlockHour > currentHour) {
+	if (timeBlockHour > currentHour) {
 			$(this).addClass("future");
 		} else if (timeBlockHour == currentHour) {
 			$(this).addClass("present");
@@ -46,6 +45,7 @@ $(document).ready(function () {
 			$(this).addClass("past");
 		}
 	});
+	
 	// button to clear local storage
 	$("#clearBtn").click(function () {
 		localStorage.clear();
